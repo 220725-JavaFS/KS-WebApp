@@ -23,6 +23,7 @@ public class WebAppService {
 		return orm.getInfoByItemNo(class1, class2, itemNum);
 	}
 	
+	@SuppressWarnings("hiding")
 	public <Clothing> List<Clothing> getInventoryOfAll(Class<Clothing> a){
 		
 		return orm.getInventoryOfAll(a);

@@ -19,6 +19,7 @@ public class Main {
 		Categories testCat = new Categories();
 		Class<?> c2 = testCat.getClass();
 		
+		System.out.println(orm.getInventoryOfAll(testItem.getClass()));
 		System.out.println(orm.getInfoByItemNo(c1, c2, 20));
 		System.out.println(testItem2);
 		

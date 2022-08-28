@@ -10,13 +10,13 @@
   </welcome-file-list>
   
   <servlet>
-  	<servlet-name>ProjectOne_WebApp</servlet-name>
+  	<servlet-name>WebAppController</servlet-name>
   	<servlet-class>com.revature.controllers.WebAppController</servlet-class>
   </servlet>
   
   <servlet-mapping>
-  	<servlet-name>ProjectOne_WebApp</servlet-name>
-  	<url-pattern>/webApp</url-pattern>
+  	<servlet-name>WebAppController</servlet-name>
+  	<url-pattern>/webApp/*</url-pattern>
   </servlet-mapping>
   
 </web-app>
