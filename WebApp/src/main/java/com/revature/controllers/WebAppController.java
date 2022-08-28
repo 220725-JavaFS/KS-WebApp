@@ -3,7 +3,10 @@ package com.revature.controllers;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,7 +35,7 @@ public class WebAppController extends HttpServlet{
 		@SuppressWarnings("unchecked")
 		List<Clothing> list = (List<Clothing>) was.getInventoryOfAll(x.getClass());
 
-		String json = om.writeValueAsString(list);
+		String json = om.writeValueAsString( list.stream().sorted(Comparator.comparing(Clothing::getItemNum)).collect(Collectors.toList()));
 		System.out.println(json);
 
 		PrintWriter printWriter = response.getWriter();
