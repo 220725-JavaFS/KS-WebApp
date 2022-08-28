@@ -35,7 +35,8 @@ public class WebAppController extends HttpServlet{
 		@SuppressWarnings("unchecked")
 		List<Clothing> list = (List<Clothing>) was.getInventoryOfAll(x.getClass());
 
-		String json = om.writeValueAsString( list.stream().sorted(Comparator.comparing(Clothing::getItemNum)).collect(Collectors.toList()));
+		//JAVA STREAM TO SORT LIST BY ITEM NUMBER
+		String json = om.writeValueAsString(list.stream().sorted(Comparator.comparing(Clothing::getItemNum)).collect(Collectors.toList()));
 		System.out.println(json);
 
 		PrintWriter printWriter = response.getWriter();
@@ -113,6 +114,7 @@ public class WebAppController extends HttpServlet{
 		System.out.println(URI);
 		String[] urlSections = URI.split("/");
 		
+		//UPDATES ITEM  BY ITEM NUMBER AND ALLOWS USER TO INPUT THE COLUMN AND VALUE TO UPDATE
 		if (urlSections.length==6) {
 			try {
 				int id = Integer.valueOf(urlSections[3]);
@@ -154,6 +156,7 @@ public class WebAppController extends HttpServlet{
 		System.out.println(URI);
 		String[] urlSections = URI.split("/");
 		
+		//DELETE ITEM BY ITEM NUMBER
 		if (urlSections.length==4) {
 			try {
 				int id = Integer.valueOf(urlSections[3]);
